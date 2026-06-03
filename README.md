@@ -36,6 +36,12 @@ The operational seed contains three core files:
 
 `README.md` 是用于 GitHub 发布的说明文档，不属于种子运行协议。
 
+## 🔎 Effective Sources / 有效源
+
+**EN:** The seed may use only sources explicitly listed in `PROJECT_REFERENCES.md`. Accessibility is not authorization: a local directory, GitHub repository, browser-visible page, or plugin search result is not an effective source until it appears in the allowlist or the user explicitly approves it.
+
+**中文：** 种子只能使用 `PROJECT_REFERENCES.md` 中明确列出的有效源。能访问不等于被授权：本地目录、GitHub 仓库、浏览器页面或插件搜索结果，只有被写入 allowlist 或由用户明确批准后，才是有效源。
+
 ## 🧬 Lifecycle / 生命周期
 
 1. **Phase 0: Seed exists / 种子存在**

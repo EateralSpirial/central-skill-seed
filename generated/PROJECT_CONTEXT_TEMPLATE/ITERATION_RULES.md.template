@@ -1,0 +1,85 @@
+# Project-Level Iteration Rules
+
+## Purpose
+
+These rules govern how future coding agents update this project's agent context.
+
+## Core Invariant
+
+The project must remain understandable, testable, and safely modifiable by future coding agents.
+
+The project-level context must remain independent from any central bootstrap skill.
+
+## Update Sources
+
+Project context may be updated based on:
+
+- user instructions
+- repeated agent mistakes
+- test failures
+- changed commands
+- changed architecture
+- durable project lessons
+- eval results
+- review findings
+
+## Evidence Requirement
+
+Every durable context update should be linked to evidence:
+
+- file path
+- command output
+- test failure
+- user correction
+- repeated pattern
+- change proposal
+- eval case
+
+## Promotion Rule
+
+A lesson may be promoted into project rules only when:
+
+- it prevents repeated mistakes
+- it clarifies architecture boundaries
+- it updates stale commands
+- it improves safety
+- it improves testability
+- the user explicitly requests it
+
+## Risk Boundaries
+
+Low-risk context changes:
+
+- typo fixes
+- path corrections
+- command corrections
+- minor clarification
+- adding a documented lesson
+
+Medium-risk context changes:
+
+- changing workflow rules
+- changing review policy
+- changing eval policy
+- adding new mandatory steps
+
+High-risk context changes:
+
+- changing project purpose
+- changing architecture authority
+- allowing autonomous high-risk rewrites
+- removing review requirements
+- deleting project history
+
+High-risk changes require explicit user approval.
+
+## Anti-Drift Rule
+
+Do not let project context become:
+
+- bloated
+- contradictory
+- stale
+- generic
+- detached from actual project behavior
+- a dumping ground for temporary notes

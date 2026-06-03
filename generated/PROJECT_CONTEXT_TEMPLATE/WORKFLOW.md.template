@@ -1,0 +1,45 @@
+# Agent Workflow
+
+## Before Work
+
+1. Read `AGENTS.md`.
+2. Read the relevant sections of `.agent/project/CONTEXT_MAP.md`.
+3. Inspect relevant source files.
+4. Identify the change risk level.
+5. For medium/high-risk changes, draft a proposal before editing.
+
+## During Work
+
+- Prefer minimal, coherent changes.
+- Preserve architecture boundaries.
+- Use existing project patterns.
+- Avoid introducing new dependencies unless justified.
+- Keep generated files and source-of-truth files consistent.
+- Do not store secrets.
+
+## After Work
+
+1. Run the smallest relevant test first.
+2. Run broader tests if the change affects shared behavior.
+3. Update experience files when a reusable lesson appears.
+4. Add regression cases for repeated failures.
+5. Update project context only when the rule is durable.
+6. Record significant work in `.agent/iteration/ITERATION_LOG.md`.
+
+## Context Update Rule
+
+Project context should be updated when:
+
+- a command changes
+- a repeated failure pattern appears
+- architecture boundaries become clearer
+- user correction reveals a durable rule
+- a new eval case prevents recurrence
+- a project-level skill becomes stale or ambiguous
+
+Project context should not be updated for:
+
+- one-off implementation details
+- temporary debugging notes
+- private or sensitive information
+- speculative rules without evidence

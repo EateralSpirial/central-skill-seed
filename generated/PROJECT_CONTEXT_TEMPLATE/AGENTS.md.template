@@ -1,0 +1,93 @@
+# AGENTS.md
+
+## Project Purpose
+
+<one-paragraph project purpose>
+
+## Setup Commands
+
+```bash
+<install command>
+```
+
+## Development Commands
+
+```bash
+<dev command>
+```
+
+## Test Commands
+
+```bash
+<test command>
+```
+
+## Build Commands
+
+```bash
+<build command>
+```
+
+## Lint / Typecheck Commands
+
+```bash
+<lint command>
+<typecheck command>
+```
+
+## Project Structure
+
+```text
+<brief project tree>
+```
+
+## Coding Rules
+
+- Preserve existing architecture boundaries.
+- Prefer small, reviewable changes.
+- Do not introduce new dependencies without a reason.
+- Do not modify generated files unless the generation source is also updated.
+- Do not commit secrets, credentials, tokens, or private configuration.
+- Add or update tests when changing behavior.
+
+## Agent Workflow
+
+Before editing:
+
+1. Inspect relevant files.
+2. Check `.agent/project/CONTEXT_MAP.md`.
+3. Check `.agent/project/WORKFLOW.md`.
+4. Identify risk level.
+5. Create a concise plan for medium/high-risk changes.
+
+After editing:
+
+1. Run relevant tests.
+2. Update `.agent/experience/LESSONS.md` if a reusable lesson was learned.
+3. Update `.agent/experience/FAILURE_PATTERNS.md` if a repeated mistake was discovered.
+4. Add a regression case under `.agent/evals/REGRESSION_CASES.md` if the change prevents recurrence.
+5. Record significant context changes in `.agent/iteration/ITERATION_LOG.md`.
+
+## Self-Iteration Rule
+
+This project owns its agent context.
+
+Future agents must improve project-level context using:
+
+- `.agent/skills/project-context-evolution/SKILL.md`
+- `.agent/project/ITERATION_RULES.md`
+- `.agent/experience/`
+- `.agent/evals/`
+- `.agent/iteration/`
+
+Do not rely on the central bootstrap skill after initialization.
+
+## Risk Policy
+
+Low-risk changes may be applied directly.
+
+Medium-risk changes require a written change proposal in `.agent/iteration/CHANGE_PROPOSALS.md`.
+
+High-risk changes require explicit user approval.
+
+See `.agent/iteration/REVIEW_POLICY.md`.

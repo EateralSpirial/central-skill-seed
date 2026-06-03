@@ -2,162 +2,374 @@
 
 ## Purpose
 
-These rules define two different lifecycles:
+This file defines how the central seed skill constructs, updates, and protects itself.
 
-- Seed completion rules: how the seed grows into a full central project-bootstrap skill.
-- Full skill iteration rules: how the completed central skill improves after use across projects.
+This skill evolves through two loops:
 
-In seed-only packaging, keep this file as protocol. Do not generate the full support directories unless the user explicitly asks to complete the seed.
+1. **Central Skill Self-Build Loop**
+2. **Managed Project Experience Loop**
 
-## A. Seed Completion Rules
+The first loop expands the three-file seed into a complete generated support layer.
 
-### Completion Target
+The second loop extracts reusable lessons from projects initialized, adopted, refreshed, reconstructed, or audited by this skill.
 
-The seed must grow into a full central skill with these generated directories:
+## Core Invariant
 
-- `templates/`
-- `schemas/`
-- `policies/`
-- `scripts/`
-- `docs/`
+This skill must remain:
 
-The generated full central skill must be able to initialize, adopt, refresh, and reconstruct project-level agent context environments.
+```text
+a central seed skill for creating independent self-evolving project-level agent context systems
+```
 
-### Completion Inputs
+Any change that weakens that identity is invalid.
 
-Use sources in this order:
+## Three-File Core Invariant
 
-1. Core seed files.
-2. Current user instructions.
-3. `PROJECT_REFERENCES.md`.
-4. Managed project experience.
-5. Trusted local projects.
-6. External reference repositories.
-7. Public documentation.
+The core seed consists of exactly three core text files:
 
-If a source tier is empty or unavailable, record that gap instead of inventing unsupported conventions.
+- `SKILL.md`
+- `ITERATION_RULES.md`
+- `PROJECT_REFERENCES.md`
 
-The order above applies only to sources that are explicitly listed in `PROJECT_REFERENCES.md`. Do not treat accessibility as authorization. A local directory, GitHub repository, browser-visible page, or plugin-search result is out of scope until it appears in the effective source allowlist or the user explicitly approves it.
+The generated support layer may contain many files, but it is subordinate and rebuildable.
 
-### Completion Procedure
+Adding a fourth core file requires explicit user approval.
 
-1. Inspect the current skill directory and classify it as seed state or full central skill state.
-2. Read `PROJECT_REFERENCES.md` and extract the effective source allowlist.
-3. List available evidence sources from the allowlist only; list missing or unresolved allowlist entries as gaps.
-4. Inspect trusted local references only when they are explicitly listed in the allowlist or the user promotes a discovered candidate source.
-5. Generate the full central skill directories.
-6. Generate project initialization templates.
-7. Generate project adoption, refresh, and reconstruction policies.
-8. Generate schemas for project registry, feedback events, iteration reports, and skill updates.
-9. Generate scripts for project inspection, project context generation, experience collection, central summary, and validation.
-10. Generate architecture and update protocol docs.
-11. Run validation.
-12. Output a completion report describing generated files, evidence used, unresolved gaps, rejected candidate sources, and next safe action.
+## Self-Build Loop
 
-### Completion Outputs
+When Self-Build Mode is invoked, the agent must:
 
-Generate at minimum:
+1. Read `SKILL.md`.
+2. Read `ITERATION_RULES.md`.
+3. Read `PROJECT_REFERENCES.md`.
+4. Inspect existing `generated/` files if present.
+5. Inspect mandatory external references when network access is available.
+6. Read managed project entries from `PROJECT_REFERENCES.md`.
+7. Inspect managed project context files where available.
+8. Extract reusable structures, protocols, and failure controls.
+9. Generate or update the central support layer under `generated/`.
+10. Validate the generated layer against core invariants.
+11. Record the run in `generated/SELF_BUILD_REPORT.md`.
+12. Update `PROJECT_REFERENCES.md` only when project entries, reference statuses, reusable lessons, or self-build history need to change.
 
-- `templates/AGENTS.md.template`
-- `templates/project-context-evolution.SKILL.md.template`
-- `templates/SYSTEM_PURPOSE.md.template`
-- `templates/CONTEXT_MAP.md.template`
-- `templates/WORKFLOW.md.template`
-- `templates/REVIEW_POLICY.md.template`
-- `templates/EVAL_POLICY.md.template`
-- `templates/ITERATION_LOG.md.template`
-- `schemas/project_registry.schema.json`
-- `schemas/feedback_event.schema.json`
-- `schemas/iteration_report.schema.json`
-- `schemas/skill_update.schema.json`
-- `policies/bootstrap_policy.md`
-- `policies/adoption_policy.md`
-- `policies/refresh_policy.md`
-- `policies/reconstruction_policy.md`
-- `policies/risk_policy.md`
-- `policies/anti_drift_policy.md`
-- `policies/evidence_policy.md`
-- `scripts/inspect_project.py`
-- `scripts/generate_project_context.py`
-- `scripts/collect_project_experience.py`
-- `scripts/summarize_managed_projects.py`
-- `scripts/validate_central_skill.py`
-- `docs/CENTRAL_SKILL_ARCHITECTURE.md`
-- `docs/GENERATED_FILE_MAP.md`
-- `docs/UPDATE_PROTOCOL.md`
+## Mandatory Reference Extraction
 
-### Core Retention Rules
+Self-Build Mode must inspect or refresh knowledge from these reference categories.
 
-Keep these responsibilities in the core files:
+### Agent Skills Format
 
-- `SKILL.md`: identity, state detection, target structure, primary operation, boundaries.
-- `ITERATION_RULES.md`: seed completion protocol, full iteration protocol, validation standard.
-- `PROJECT_REFERENCES.md`: evidence source index and project registry.
+Use:
 
-Put generated implementation details in support directories. Do not bury the seed identity inside generated files.
+- `anthropics/skills`
+- `agentskills/agentskills`
+- `agentskills.io`
 
-### Completion Constraints
+Extract:
 
-The generated full central skill must preserve:
+- skill folder structure
+- `SKILL.md` role
+- metadata conventions
+- progressive disclosure patterns
+- bundled scripts/resources/templates
+- cross-agent compatibility concerns
 
-- Seed identity.
-- Project-level independence.
-- `AGENTS.md` as a canonical project entry point.
-- Review boundaries.
-- Rollback requirements.
-- Experience harvesting.
-- Anti-drift checks.
-- Evidence-based updates.
-- Effective-source allowlist boundaries from `PROJECT_REFERENCES.md`.
+### Project-Level Agent Context
 
-### Validation Standard
+Use:
 
-The full central skill is valid only if it can:
+- `AGENTS.md`
+- OpenAI Codex `AGENTS.md` guide
 
-1. Initialize a project with no existing agent context.
-2. Create a project-level `AGENTS.md`.
-3. Create a project-level self-iteration skill.
-4. Create experience capture files.
-5. Create review and eval policies.
-6. Register the project.
-7. Explain how future agents can continue in the project without the central skill.
+Extract:
 
-### Stop Conditions
+- `AGENTS.md` as canonical project-level entry
+- setup/test/style/workflow conventions
+- instruction layering behavior
+- concise project onboarding principles
 
-Stop before completion when:
+### Skill Runtime And Self-Improvement
 
-- The user explicitly asks for seed form only.
-- Required external evidence needs user approval or credentials.
-- A referenced project or repository cannot be accessed.
-- Validation would require modifying a target project the user has not named.
+Use:
 
-In these cases, keep the seed intact and report what remains unresolved.
+- `ShunsukeHayashi/agent-skill-bus`
 
-## B. Full Skill Iteration Rules
+Extract:
 
-Use these rules only after the central skill has completed itself.
+- skill execution logging
+- health scoring
+- drift detection
+- self-improvement loop
+- record-run pattern
+- low-risk repair vs high-risk approval distinction
+- knowledge watcher concept
 
-Update the full central skill from repeated evidence gathered across managed projects. Prefer recurring patterns over one-off project quirks.
+### Engineering Harness
 
-During full iteration:
+Use:
 
-1. Collect experience from initialized or adopted projects.
-2. Compare project-level outcomes against current templates, policies, schemas, and scripts.
-3. Identify reusable improvements.
-4. Update generated support files before changing core seed files.
-5. Keep project-level contexts independently usable.
-6. Run central validation.
-7. Record the iteration report.
+- `alinaqi/maggy`
+- former reference name: Claude Bootstrap + Maggy
 
-Do not import project-specific preferences into central policy unless they generalize across projects or the user explicitly promotes them.
+Extract:
 
-## Anti-Drift Checks
+- installable coding-agent configuration packs
+- skills/hooks/rules/templates/evals organization
+- quality gates
+- ADR and review workflows
+- memory organization
+- dashboard and routing concepts
+- test enforcement patterns
 
-Before any seed completion or full iteration, verify:
+### Context Engineering
 
-- The two-stage bootstrap remains intact.
-- The seed has not become a project initializer directly.
-- The central skill does not make target projects dependent on itself after initialization.
-- Generated files preserve rollback, review, evidence, and validation requirements.
-- Missing evidence is marked as missing instead of silently replaced with assumptions.
-- Every evidence source used during synthesis appears in the `PROJECT_REFERENCES.md` effective source allowlist or has explicit user approval recorded in the completion report.
+Use:
+
+- `NeoLabHQ/context-engineering-kit`
+
+Extract:
+
+- token-efficient context layout
+- plugin-oriented skills
+- reflexion and review workflows
+- granular context loading
+- quality-focused context design
+- cross-client compatibility
+
+### Ecosystem Survey
+
+Use:
+
+- `VoltAgent/awesome-agent-skills`
+
+Extract:
+
+- common skill categories
+- naming patterns
+- ecosystem coverage
+- candidate repositories for later review
+
+Do not treat ecosystem indexes as quality guarantees.
+
+## Source Use Rules
+
+The agent may extract:
+
+- directory structure ideas
+- file naming conventions
+- project initialization procedures
+- review policies
+- eval patterns
+- skill health concepts
+- self-improvement loop structures
+- context compression patterns
+- drift detection ideas
+- registry patterns
+
+The agent must not extract:
+
+- secrets
+- credentials
+- copyrighted large text
+- private project data
+- large external systems copied wholesale
+- unverified security assumptions
+- patterns that make target projects permanently dependent on external tools
+
+## Offline Self-Build Rule
+
+If external references cannot be checked due to lack of network access, the agent must:
+
+1. Use the local seed files.
+2. Use existing `generated/REFERENCE_DIGEST.md` if available.
+3. Record an offline fallback in `generated/SELF_BUILD_REPORT.md`.
+4. Mark every unrefreshed reference explicitly.
+5. Avoid claiming that external references were verified.
+
+## Generated Layer Policy
+
+The generated layer is operational support.
+
+It may include:
+
+- protocols
+- digests
+- templates
+- reports
+- checklists
+- project bootstrap materials
+
+It must remain subordinate to the three core files.
+
+If a generated file conflicts with a core file, the core file wins.
+
+## Managed Project Experience Loop
+
+When managed project experience exists, the agent may update the generated central support layer by inspecting:
+
+- target project `AGENTS.md`
+- `.agent/project/`
+- `.agent/skills/project-context-evolution/SKILL.md`
+- `.agent/experience/LESSONS.md`
+- `.agent/experience/FAILURE_PATTERNS.md`
+- `.agent/experience/USER_CORRECTIONS.md`
+- `.agent/iteration/ITERATION_LOG.md`
+- `.agent/iteration/CHANGE_PROPOSALS.md`
+- `.agent/evals/REGRESSION_CASES.md`
+- `.agent/evals/EVAL_POLICY.md`
+
+Extract only generalizable lessons.
+
+Project-specific facts must remain in the project.
+
+## Lesson Promotion Rule
+
+A project lesson may be promoted into this central skill only if at least one condition is true:
+
+- it appears in multiple managed projects
+- it fixes repeated context drift
+- it improves project-level independence
+- it clarifies risk boundaries
+- it improves eval or regression policy
+- it improves rollback quality
+- it improves initialization accuracy
+- the user explicitly asks to promote it
+
+## Emotional Feedback Rule
+
+User emotion may be used as a signal for:
+
+- friction
+- violated expectation
+- repeated agent failure
+- project context ambiguity
+- workflow mismatch
+- missing regression coverage
+- missing review boundary
+
+Emotion must not be treated as objective truth.
+
+Emotion must not be used to manipulate users.
+
+Strong negative emotion should trigger:
+
+- failure classification
+- context review
+- regression case creation
+- rule clarification
+- possible project-level skill update
+
+Strong positive emotion should trigger:
+
+- lesson preservation
+- pattern extraction
+- template improvement if generalizable
+
+## Self-Modification Risk Policy
+
+### Low Risk
+
+May be applied directly:
+
+- wording clarification
+- typo fix
+- formatting cleanup
+- missing checklist item
+- improved file path description
+- reference digest refresh
+- generated template clarification
+
+### Medium Risk
+
+Requires a written update proposal:
+
+- new generated file type
+- new bootstrap protocol
+- changed project initialization procedure
+- changed reference extraction method
+- changed project-level context component
+- changed review policy
+
+### High Risk
+
+Requires explicit user approval:
+
+- changing the core purpose
+- increasing the core file count
+- removing project independence requirement
+- removing `AGENTS.md` as canonical project entry
+- allowing automatic high-risk project rewrites
+- storing sensitive project data
+- making target projects depend permanently on this central skill
+- replacing the two-mode execution model
+
+## Anti-Drift Rules
+
+This skill must not drift toward:
+
+- generic software engineering advice
+- generic project management theory
+- generic prompt engineering advice
+- autonomous self-modifying agent ideology
+- uncontrolled self-modification
+- user emotion optimization as the sole objective
+- hidden memory accumulation
+- permanent project dependency
+- blind copying of open-source skill packs
+
+## Validation Checklist For Self-Build
+
+After each Self-Build run, verify:
+
+- the two execution modes are preserved
+- the three-file core invariant is preserved
+- the generated layer exists
+- the generated layer is rebuildable
+- mandatory references were considered or offline fallback was recorded
+- project templates create independent project-level contexts
+- managed project registry remains intact
+- risk boundaries remain explicit
+- no sensitive data was imported
+- no external project was copied wholesale
+- `SELF_BUILD_REPORT.md` was updated
+
+## Validation Checklist For Project Bootstrap
+
+After each Project Context Bootstrap run, verify the target project has:
+
+- `AGENTS.md`
+- `.agent/project/SYSTEM_PURPOSE.md`
+- `.agent/project/CONTEXT_MAP.md`
+- `.agent/project/WORKFLOW.md`
+- `.agent/project/ITERATION_RULES.md`
+- `.agent/skills/project-context-evolution/SKILL.md`
+- `.agent/experience/LESSONS.md`
+- `.agent/experience/FAILURE_PATTERNS.md`
+- `.agent/experience/USER_CORRECTIONS.md`
+- `.agent/iteration/ITERATION_LOG.md`
+- `.agent/iteration/CHANGE_PROPOSALS.md`
+- `.agent/iteration/REVIEW_POLICY.md`
+- `.agent/evals/REGRESSION_CASES.md`
+- `.agent/evals/EVAL_POLICY.md`
+
+Also verify:
+
+- the target project can operate without this central skill
+- the target project has explicit risk boundaries
+- the target project records agent experience
+- repeated failures can become regression cases
+- future agents know how to update project context
+
+## Scheduled Update Reality Check
+
+This skill is not a daemon.
+
+Periodic self-update works only when one of the following invokes it:
+
+- user request
+- coding-agent run
+- external scheduler
+- CI job
+- local script
+- project-level workflow trigger
+
+The skill must not claim it can update itself in the background without invocation.

@@ -37,19 +37,22 @@ Use sources in this order:
 
 If a source tier is empty or unavailable, record that gap instead of inventing unsupported conventions.
 
+The order above applies only to sources that are explicitly listed in `PROJECT_REFERENCES.md`. Do not treat accessibility as authorization. A local directory, GitHub repository, browser-visible page, or plugin-search result is out of scope until it appears in the effective source allowlist or the user explicitly approves it.
+
 ### Completion Procedure
 
 1. Inspect the current skill directory and classify it as seed state or full central skill state.
-2. Read `PROJECT_REFERENCES.md` and list available evidence sources.
-3. Inspect trusted local references only when they are explicitly listed or discoverable from trusted local configuration.
-4. Generate the full central skill directories.
-5. Generate project initialization templates.
-6. Generate project adoption, refresh, and reconstruction policies.
-7. Generate schemas for project registry, feedback events, iteration reports, and skill updates.
-8. Generate scripts for project inspection, project context generation, experience collection, central summary, and validation.
-9. Generate architecture and update protocol docs.
-10. Run validation.
-11. Output a completion report describing generated files, evidence used, unresolved gaps, and next safe action.
+2. Read `PROJECT_REFERENCES.md` and extract the effective source allowlist.
+3. List available evidence sources from the allowlist only; list missing or unresolved allowlist entries as gaps.
+4. Inspect trusted local references only when they are explicitly listed in the allowlist or the user promotes a discovered candidate source.
+5. Generate the full central skill directories.
+6. Generate project initialization templates.
+7. Generate project adoption, refresh, and reconstruction policies.
+8. Generate schemas for project registry, feedback events, iteration reports, and skill updates.
+9. Generate scripts for project inspection, project context generation, experience collection, central summary, and validation.
+10. Generate architecture and update protocol docs.
+11. Run validation.
+12. Output a completion report describing generated files, evidence used, unresolved gaps, rejected candidate sources, and next safe action.
 
 ### Completion Outputs
 
@@ -105,6 +108,7 @@ The generated full central skill must preserve:
 - Experience harvesting.
 - Anti-drift checks.
 - Evidence-based updates.
+- Effective-source allowlist boundaries from `PROJECT_REFERENCES.md`.
 
 ### Validation Standard
 
@@ -156,3 +160,4 @@ Before any seed completion or full iteration, verify:
 - The central skill does not make target projects dependent on itself after initialization.
 - Generated files preserve rollback, review, evidence, and validation requirements.
 - Missing evidence is marked as missing instead of silently replaced with assumptions.
+- Every evidence source used during synthesis appears in the `PROJECT_REFERENCES.md` effective source allowlist or has explicit user approval recorded in the completion report.

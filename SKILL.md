@@ -89,10 +89,11 @@ When invoked in seed state:
 2. Identify missing full-skill components.
 3. Read `ITERATION_RULES.md`.
 4. Read `PROJECT_REFERENCES.md`.
-5. Collect only referenced and trustworthy evidence.
-6. Generate missing central skill files.
-7. Validate the generated central skill.
-8. Produce a completion report.
+5. Extract the effective source allowlist.
+6. Collect evidence only from allowlisted sources or sources explicitly approved by the user.
+7. Generate missing central skill files.
+8. Validate the generated central skill.
+9. Produce a completion report.
 
 When invoked in full central skill state:
 
@@ -124,5 +125,6 @@ The seed's job is controlled self-completion. The completed central skill's job 
 - Keep identity, goals, boundaries, completion rules, reference sources, validation standards, and anti-drift constraints in the three core files.
 - Move implementation details into generated `templates/`, `schemas/`, `policies/`, `scripts/`, and `docs/` only during full completion.
 - Do not treat one project's local habit as a central rule without evidence.
+- Do not treat an accessible repository, local directory, browser page, or plugin result as an effective source unless it is listed in `PROJECT_REFERENCES.md` or explicitly approved by the user.
 - Do not generate project-level context from the seed before completing the central skill.
 - If the user asks for seed form only, stop after maintaining the core seed files.

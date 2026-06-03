@@ -42,6 +42,10 @@ The operational seed contains three core files:
 
 **中文：** 种子只能使用 `PROJECT_REFERENCES.md` 中明确列出的有效源。能访问不等于被授权：本地目录、GitHub 仓库、浏览器页面或插件搜索结果，只有被写入 allowlist 或由用户明确批准后，才是有效源。
 
+**EN:** The recovered open-source skill source chain currently includes the official `evomap` skill document and the related `EvoMap/evolver` GitHub repository. Other previously intended open-source skill repositories must be added by exact name or URL before they become effective sources.
+
+**中文：** 当前已恢复的开源 skill 来源链包括官方 `evomap` skill 文档和相关的 `EvoMap/evolver` GitHub 仓库。其他此前计划加入的开源 skill 仓库，必须用明确仓库名或 URL 补充后，才会成为有效源。
+
 ## 🧬 Lifecycle / 生命周期
 
 1. **Phase 0: Seed exists / 种子存在**

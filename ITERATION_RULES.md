@@ -2,59 +2,52 @@
 
 ## Purpose
 
-This file defines how the central seed skill constructs, updates, and protects itself.
+These rules govern the seed and its generation of a separate full skill package.
 
-This skill evolves through two loops:
+The seed does not self-complete in place.
 
-1. **Central Skill Self-Build Loop**
-2. **Managed Project Experience Loop**
-
-The first loop expands the three-file seed into a complete generated support layer.
-
-The second loop extracts reusable lessons from projects initialized, adopted, refreshed, reconstructed, or audited by this skill.
+The seed emits or updates a separate full skill package.
 
 ## Core Invariant
 
-This skill must remain:
+The seed must remain a small generator.
+
+The full skill must remain a separate operational artifact.
 
 ```text
-a central seed skill for creating independent self-evolving project-level agent context systems
+seed != full skill
 ```
 
-Any change that weakens that identity is invalid.
+## Three-File Seed Core
 
-## Three-File Core Invariant
-
-The core seed consists of exactly three core text files:
+The seed core has exactly three operational files:
 
 - `SKILL.md`
 - `ITERATION_RULES.md`
 - `PROJECT_REFERENCES.md`
 
-The generated support layer may contain many files, but it is subordinate and rebuildable.
+Do not add another operational core file without explicit user approval.
 
-Adding a fourth core file requires explicit user approval.
+`README.md` and `full-skill/` are repository support materials, not seed core.
 
-## Self-Build Loop
+## Full Skill Generation Loop
 
-When Self-Build Mode is invoked, the agent must:
+When asked to generate or refresh the full skill, the agent must:
 
-1. Read `SKILL.md`.
-2. Read `ITERATION_RULES.md`.
-3. Read `PROJECT_REFERENCES.md`.
-4. Inspect existing `generated/` files if present.
-5. Inspect mandatory external references when network access is available.
-6. Read managed project entries from `PROJECT_REFERENCES.md`.
-7. Inspect managed project context files where available.
-8. Extract reusable structures, protocols, and failure controls.
-9. Generate or update the central support layer under `generated/`.
-10. Validate the generated layer against core invariants.
-11. Record the run in `generated/SELF_BUILD_REPORT.md`.
-12. Update `PROJECT_REFERENCES.md` only when project entries, reference statuses, reusable lessons, or self-build history need to change.
+1. Read seed `SKILL.md`.
+2. Read seed `ITERATION_RULES.md`.
+3. Read seed `PROJECT_REFERENCES.md`.
+4. Inspect the local `full-skill/` blueprint if available.
+5. Inspect mandatory approved external references when network access is available.
+6. Extract reusable structures and safeguards.
+7. Generate or update the full skill in a separate target directory.
+8. Verify that the full skill has its own `SKILL.md`, rules, protocols, templates, and project-bootstrap mechanism.
+9. Verify that the full skill does not depend on this seed.
+10. Record the target under `PROJECT_REFERENCES.md` if appropriate.
 
-## Mandatory Reference Extraction
+## Approved Reference Extraction
 
-Self-Build Mode must inspect or refresh knowledge from these reference categories.
+The seed may use only sources explicitly listed in `PROJECT_REFERENCES.md`.
 
 ### Agent Skills Format
 
@@ -66,12 +59,11 @@ Use:
 
 Extract:
 
-- skill folder structure
+- skill package structure
 - `SKILL.md` role
-- metadata conventions
-- progressive disclosure patterns
-- bundled scripts/resources/templates
-- cross-agent compatibility concerns
+- frontmatter conventions
+- progressive disclosure
+- resource/script/template separation
 
 ### Project-Level Agent Context
 
@@ -82,12 +74,11 @@ Use:
 
 Extract:
 
-- `AGENTS.md` as canonical project-level entry
-- setup/test/style/workflow conventions
-- instruction layering behavior
-- concise project onboarding principles
+- `AGENTS.md` as project-level entry
+- instruction layering assumptions
+- concise setup/test/style/workflow patterns
 
-### Skill Runtime And Self-Improvement
+### Runtime Self-Improvement
 
 Use:
 
@@ -95,30 +86,24 @@ Use:
 
 Extract:
 
-- skill execution logging
-- health scoring
+- run logging
+- health checks
 - drift detection
-- self-improvement loop
-- record-run pattern
-- low-risk repair vs high-risk approval distinction
-- knowledge watcher concept
+- self-improvement loops
+- low-risk repair and high-risk approval boundaries
 
 ### Engineering Harness
 
 Use:
 
 - `alinaqi/maggy`
-- former reference name: Claude Bootstrap + Maggy
 
 Extract:
 
-- installable coding-agent configuration packs
 - skills/hooks/rules/templates/evals organization
 - quality gates
-- ADR and review workflows
-- memory organization
-- dashboard and routing concepts
-- test enforcement patterns
+- ADR/review workflows
+- memory and routing patterns
 
 ### Context Engineering
 
@@ -128,12 +113,10 @@ Use:
 
 Extract:
 
-- token-efficient context layout
+- low-token context layout
 - plugin-oriented skills
-- reflexion and review workflows
+- review and reflexion workflows
 - granular context loading
-- quality-focused context design
-- cross-client compatibility
 
 ### Ecosystem Survey
 
@@ -143,233 +126,91 @@ Use:
 
 Extract:
 
-- common skill categories
 - naming patterns
-- ecosystem coverage
+- common skill categories
 - candidate repositories for later review
 
 Do not treat ecosystem indexes as quality guarantees.
 
-## Source Use Rules
+## Full Skill Output Contract
 
-The agent may extract:
+A generated full skill must include:
 
-- directory structure ideas
-- file naming conventions
-- project initialization procedures
-- review policies
-- eval patterns
-- skill health concepts
-- self-improvement loop structures
-- context compression patterns
-- drift detection ideas
-- registry patterns
+- its own identity
+- its own iteration rules
+- its own reference registry
+- project bootstrap protocols
+- experience harvesting protocol
+- project-level context templates
+- project-level skill template
+- review policy template
+- eval policy template
+- experience capture template
 
-The agent must not extract:
+The full skill must be able to initialize a target project without reading the seed.
 
-- secrets
-- credentials
-- copyrighted large text
-- private project data
-- large external systems copied wholesale
-- unverified security assumptions
-- patterns that make target projects permanently dependent on external tools
+## Seed Update Policy
 
-## Offline Self-Build Rule
+Update the seed only for:
 
-If external references cannot be checked due to lack of network access, the agent must:
+- source allowlist corrections
+- generation contract corrections
+- seed/full-skill boundary clarifications
+- blueprint synchronization
+- security or privacy boundary improvements
 
-1. Use the local seed files.
-2. Use existing `generated/REFERENCE_DIGEST.md` if available.
-3. Record an offline fallback in `generated/SELF_BUILD_REPORT.md`.
-4. Mark every unrefreshed reference explicitly.
-5. Avoid claiming that external references were verified.
+Do not promote ordinary full-skill operational lessons into seed core unless they affect seed generation itself.
 
-## Generated Layer Policy
+## Full Skill Blueprint Policy
 
-The generated layer is operational support.
+`full-skill/` is a blueprint, not seed runtime.
 
-It may include:
+It may be updated to show the current expected output shape.
 
-- protocols
-- digests
-- templates
-- reports
-- checklists
-- project bootstrap materials
+A generated real full skill should be written to a separate path, such as:
 
-It must remain subordinate to the three core files.
+```text
+~/.codex/skills/self-evolving-project-bootstrap/
+```
 
-If a generated file conflicts with a core file, the core file wins.
+or a user-specified target directory.
 
-## Managed Project Experience Loop
+## Offline Rule
 
-When managed project experience exists, the agent may update the generated central support layer by inspecting:
+If network access is unavailable:
 
-- target project `AGENTS.md`
-- `.agent/project/`
-- `.agent/skills/project-context-evolution/SKILL.md`
-- `.agent/experience/LESSONS.md`
-- `.agent/experience/FAILURE_PATTERNS.md`
-- `.agent/experience/USER_CORRECTIONS.md`
-- `.agent/iteration/ITERATION_LOG.md`
-- `.agent/iteration/CHANGE_PROPOSALS.md`
-- `.agent/evals/REGRESSION_CASES.md`
-- `.agent/evals/EVAL_POLICY.md`
-
-Extract only generalizable lessons.
-
-Project-specific facts must remain in the project.
-
-## Lesson Promotion Rule
-
-A project lesson may be promoted into this central skill only if at least one condition is true:
-
-- it appears in multiple managed projects
-- it fixes repeated context drift
-- it improves project-level independence
-- it clarifies risk boundaries
-- it improves eval or regression policy
-- it improves rollback quality
-- it improves initialization accuracy
-- the user explicitly asks to promote it
-
-## Emotional Feedback Rule
-
-User emotion may be used as a signal for:
-
-- friction
-- violated expectation
-- repeated agent failure
-- project context ambiguity
-- workflow mismatch
-- missing regression coverage
-- missing review boundary
-
-Emotion must not be treated as objective truth.
-
-Emotion must not be used to manipulate users.
-
-Strong negative emotion should trigger:
-
-- failure classification
-- context review
-- regression case creation
-- rule clarification
-- possible project-level skill update
-
-Strong positive emotion should trigger:
-
-- lesson preservation
-- pattern extraction
-- template improvement if generalizable
-
-## Self-Modification Risk Policy
-
-### Low Risk
-
-May be applied directly:
-
-- wording clarification
-- typo fix
-- formatting cleanup
-- missing checklist item
-- improved file path description
-- reference digest refresh
-- generated template clarification
-
-### Medium Risk
-
-Requires a written update proposal:
-
-- new generated file type
-- new bootstrap protocol
-- changed project initialization procedure
-- changed reference extraction method
-- changed project-level context component
-- changed review policy
-
-### High Risk
-
-Requires explicit user approval:
-
-- changing the core purpose
-- increasing the core file count
-- removing project independence requirement
-- removing `AGENTS.md` as canonical project entry
-- allowing automatic high-risk project rewrites
-- storing sensitive project data
-- making target projects depend permanently on this central skill
-- replacing the two-mode execution model
+1. Use seed core files.
+2. Use the local `full-skill/` blueprint.
+3. Mark external references as not refreshed.
+4. Avoid claiming that current external sources were verified.
 
 ## Anti-Drift Rules
 
-This skill must not drift toward:
+The seed must not drift into:
 
-- generic software engineering advice
-- generic project management theory
-- generic prompt engineering advice
-- autonomous self-modifying agent ideology
-- uncontrolled self-modification
-- user emotion optimization as the sole objective
-- hidden memory accumulation
-- permanent project dependency
-- blind copying of open-source skill packs
+- a generic coding guide
+- a generic project-management framework
+- a full project-bootstrap runtime
+- a permanent managed-project registry
+- an autonomous background service
+- a hidden memory system
 
-## Validation Checklist For Self-Build
+The full skill may be operational and expandable. The seed must stay minimal.
 
-After each Self-Build run, verify:
+## Validation Checklist
 
-- the two execution modes are preserved
-- the three-file core invariant is preserved
-- the generated layer exists
-- the generated layer is rebuildable
-- mandatory references were considered or offline fallback was recorded
-- project templates create independent project-level contexts
-- managed project registry remains intact
-- risk boundaries remain explicit
-- no sensitive data was imported
-- no external project was copied wholesale
-- `SELF_BUILD_REPORT.md` was updated
+After a seed update, verify:
 
-## Validation Checklist For Project Bootstrap
+- the seed still has exactly three operational core files
+- the seed still generates a separate full skill
+- no `generated/` runtime layer is required inside the seed
+- approved sources remain explicit in `PROJECT_REFERENCES.md`
+- `full-skill/` is documented as blueprint/output shape
 
-After each Project Context Bootstrap run, verify the target project has:
+After full-skill generation, verify:
 
-- `AGENTS.md`
-- `.agent/project/SYSTEM_PURPOSE.md`
-- `.agent/project/CONTEXT_MAP.md`
-- `.agent/project/WORKFLOW.md`
-- `.agent/project/ITERATION_RULES.md`
-- `.agent/skills/project-context-evolution/SKILL.md`
-- `.agent/experience/LESSONS.md`
-- `.agent/experience/FAILURE_PATTERNS.md`
-- `.agent/experience/USER_CORRECTIONS.md`
-- `.agent/iteration/ITERATION_LOG.md`
-- `.agent/iteration/CHANGE_PROPOSALS.md`
-- `.agent/iteration/REVIEW_POLICY.md`
-- `.agent/evals/REGRESSION_CASES.md`
-- `.agent/evals/EVAL_POLICY.md`
-
-Also verify:
-
-- the target project can operate without this central skill
-- the target project has explicit risk boundaries
-- the target project records agent experience
-- repeated failures can become regression cases
-- future agents know how to update project context
-
-## Scheduled Update Reality Check
-
-This skill is not a daemon.
-
-Periodic self-update works only when one of the following invokes it:
-
-- user request
-- coding-agent run
-- external scheduler
-- CI job
-- local script
-- project-level workflow trigger
-
-The skill must not claim it can update itself in the background without invocation.
+- the full skill has its own `SKILL.md`
+- the full skill can bootstrap project-level agent context
+- the full skill has protocols and templates
+- the full skill does not depend on seed files
+- the target path is recorded if requested

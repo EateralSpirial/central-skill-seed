@@ -1,0 +1,23 @@
+# Context Map
+
+## Canonical Entry
+
+- `AGENTS.md`
+
+## Project Context
+
+- `.agent/project/SYSTEM_PURPOSE.md`
+- `.agent/project/CONTEXT_MAP.md`
+- `.agent/project/WORKFLOW.md`
+- `.agent/project/ITERATION_RULES.md`
+
+## Experience
+
+- `.agent/experience/LESSONS.md`
+- `.agent/experience/FAILURE_PATTERNS.md`
+- `.agent/experience/USER_CORRECTIONS.md`
+
+## Evals
+
+- `.agent/evals/REGRESSION_CASES.md`
+- `.agent/evals/EVAL_POLICY.md`

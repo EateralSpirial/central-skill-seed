@@ -1,0 +1,19 @@
+# Project Iteration Rules
+
+## Core Invariant
+
+The project must remain understandable, testable, and safely modifiable by future coding agents.
+
+## Evidence Requirement
+
+Every durable context update should be tied to evidence:
+
+- user correction
+- test result
+- command change
+- repeated failure
+- architecture clarification
+
+## Anti-Drift
+
+Do not let context become bloated, stale, contradictory, generic, or detached from code.

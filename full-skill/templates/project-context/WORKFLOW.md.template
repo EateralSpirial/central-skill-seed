@@ -1,0 +1,15 @@
+# Workflow
+
+## Before Work
+
+1. Read `AGENTS.md`.
+2. Inspect relevant source files.
+3. Identify risk level.
+4. Draft a proposal for medium/high-risk changes.
+
+## After Work
+
+1. Run relevant checks.
+2. Record durable lessons.
+3. Add regression cases for repeated failures.
+4. Update context only when evidence justifies it.

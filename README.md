@@ -1,37 +1,55 @@
-# 🌱 Self-Evolving Project Bootstrap Skill
+# 🌱 Central Skill Seed
 
-A three-file central seed skill that can first complete itself into a full central skill support layer, then initialize independent self-evolving agent context environments for software projects.
+`central-skill-seed` is a minimal seed skill. Its job is to generate a **separate full skill package**, not to grow a full skill inside itself.
 
-## Core idea
+## Architecture
 
 ```text
-three-file seed
--> generated central support layer
--> project-level AGENTS.md + .agent/
--> future coding agents keep the project context evolving without depending on this central skill
+central-skill-seed/                  # seed skill; keep small
+  README.md                          # repository documentation
+  SKILL.md                           # seed entrypoint
+  ITERATION_RULES.md                 # seed self-build rules
+  PROJECT_REFERENCES.md              # source allowlist and registry
+  full-skill/                        # blueprint of the separate full skill package the seed generates
+    SKILL.md
+    ITERATION_RULES.md
+    PROJECT_REFERENCES.md
+    protocols/
+    templates/
 ```
 
-## Two execution modes
+## Core rule
 
-### 1. Self-Build Mode
+The seed and the full skill are separate artifacts.
 
-Use this when the central skill is incomplete, stale, or still only a seed. The agent reads the three core files and the mandatory GitHub reference projects, then generates or refreshes `generated/`.
+```text
+seed skill
+→ reads approved references
+→ generates separate full skill package
+→ full skill bootstraps project-level agent context
+```
 
-### 2. Project Context Bootstrap Mode
+The seed must not treat `full-skill/` as its own generated runtime state. `full-skill/` is a repository blueprint and expected output shape. In actual use, the seed should generate the full skill into a distinct target directory, for example:
 
-Use this when a target project has no `AGENTS.md`, no `.agent/` context, or a stale/contradictory agent context. The skill creates a project-level context environment that remains independent after this central skill is removed.
+```text
+~/.codex/skills/self-evolving-project-bootstrap/
+```
 
-## Core seed files
+or a user-specified output path.
+
+## Seed core files
 
 | File | Purpose |
 | --- | --- |
-| `SKILL.md` | Defines identity, execution modes, target outputs, and invariants. |
-| `ITERATION_RULES.md` | Defines how the central skill self-builds and evolves from managed project experience. |
-| `PROJECT_REFERENCES.md` | Lists mandatory GitHub references, managed projects, reusable lessons, and self-build history. |
+| `SKILL.md` | Defines the seed identity and the separate full-skill generation workflow. |
+| `ITERATION_RULES.md` | Defines how the seed updates itself and how it emits the full skill. |
+| `PROJECT_REFERENCES.md` | Lists approved GitHub sources, generated full-skill targets, and managed project registries. |
 
-## Mandatory GitHub reference projects
+Only these three files are operational seed core.
 
-The current source allowlist is explicit and repository-level:
+## Mandatory GitHub reference sources
+
+The seed may use only approved sources listed in `PROJECT_REFERENCES.md`, including:
 
 - `anthropics/skills` — https://github.com/anthropics/skills
 - `agentskills/agentskills` — https://github.com/agentskills/agentskills
@@ -43,50 +61,18 @@ The current source allowlist is explicit and repository-level:
 - `NeoLabHQ/context-engineering-kit` — https://github.com/NeoLabHQ/context-engineering-kit
 - `VoltAgent/awesome-agent-skills` — https://github.com/VoltAgent/awesome-agent-skills
 
-The skill may extract structures, protocols, safeguards, and templates from these sources. It must not copy external repositories wholesale.
+## Full skill output
 
-## Generated layer
-
-`generated/` is rebuildable operational support. It contains protocols and templates used by the central skill after Self-Build Mode:
+The generated full skill should be an independent skill package named:
 
 ```text
-generated/
-  REFERENCE_DIGEST.md
-  SELF_BUILD_PROTOCOL.md
-  PROJECT_BOOTSTRAP_PROTOCOL.md
-  PROJECT_CONTEXT_TEMPLATE/
-  PROJECT_SKILL_TEMPLATE/
-  EVAL_POLICY_TEMPLATE.md
-  EXPERIENCE_CAPTURE_TEMPLATE.md
-  REVIEW_POLICY_TEMPLATE.md
-  SELF_BUILD_REPORT.md
+self-evolving-project-bootstrap
 ```
 
-## Project bootstrap output
+It should contain its own `SKILL.md`, rules, protocols, templates, and project-bootstrap logic. It should not need the seed after generation.
 
-A target project initialized by this skill should receive:
+## Why this split matters
 
-```text
-AGENTS.md
-.agent/project/SYSTEM_PURPOSE.md
-.agent/project/CONTEXT_MAP.md
-.agent/project/WORKFLOW.md
-.agent/project/ITERATION_RULES.md
-.agent/skills/project-context-evolution/SKILL.md
-.agent/experience/LESSONS.md
-.agent/experience/FAILURE_PATTERNS.md
-.agent/experience/USER_CORRECTIONS.md
-.agent/iteration/ITERATION_LOG.md
-.agent/iteration/CHANGE_PROPOSALS.md
-.agent/iteration/REVIEW_POLICY.md
-.agent/evals/REGRESSION_CASES.md
-.agent/evals/EVAL_POLICY.md
-```
+The seed is stable and minimal. The full skill is operational and expandable.
 
-## Core invariant
-
-A target project must be able to continue agent-context iteration without this central skill.
-
-## License
-
-No license has been selected yet.
+This prevents the seed from becoming bloated, self-mutating, or confused with its own output.

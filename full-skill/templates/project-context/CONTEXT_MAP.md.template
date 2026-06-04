@@ -1,15 +1,19 @@
 # Context Map
 
-## Canonical Entry
+## Canonical entry
 
 - `AGENTS.md`
 
-## Project Context
+## Project context
 
 - `.agent/project/SYSTEM_PURPOSE.md`
 - `.agent/project/CONTEXT_MAP.md`
 - `.agent/project/WORKFLOW.md`
 - `.agent/project/ITERATION_RULES.md`
+
+## Project-level skill
+
+- `.agent/skills/project-context-evolution/SKILL.md`
 
 ## Experience
 

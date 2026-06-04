@@ -1,13 +1,13 @@
 # Workflow
 
-## Before Work
+## Before work
 
 1. Read `AGENTS.md`.
 2. Inspect relevant source files.
 3. Identify risk level.
 4. Draft a proposal for medium/high-risk changes.
 
-## After Work
+## After work
 
 1. Run relevant checks.
 2. Record durable lessons.

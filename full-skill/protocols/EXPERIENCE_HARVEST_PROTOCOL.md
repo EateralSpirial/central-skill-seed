@@ -1,23 +1,30 @@
 # Experience Harvest Protocol
 
-## Purpose
+## Goal
 
-Extract reusable lessons from managed projects.
+Extract generalizable lessons from managed projects.
 
 ## Sources
 
-Read managed projects' `.agent/` context files.
+Read project-local files:
+
+- `AGENTS.md`
+- `.agent/project/`
+- `.agent/skills/project-context-evolution/SKILL.md`
+- `.agent/experience/`
+- `.agent/iteration/`
+- `.agent/evals/`
 
 ## Classification
 
 Classify each item as:
 
-- local project fact
-- local convention
-- reusable initialization heuristic
+- project-local fact
+- project-local convention
+- reusable bootstrap heuristic
 - reusable review rule
 - reusable eval pattern
 - anti-drift lesson
 - rejected noise
 
-Only generalizable lessons may be promoted into this full skill.
+Promote only generalizable lessons.

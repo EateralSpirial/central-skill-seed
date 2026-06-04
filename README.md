@@ -1,78 +1,71 @@
-# 🌱 Central Skill Seed
+# central-skill-seed
 
-`central-skill-seed` is a minimal seed skill. Its job is to generate a **separate full skill package**, not to grow a full skill inside itself.
+A minimal seed skill that generates a separate full skill package.
 
-## Architecture
+## Objects
 
-```text
-central-skill-seed/                  # seed skill; keep small
-  README.md                          # repository documentation
-  SKILL.md                           # seed entrypoint
-  ITERATION_RULES.md                 # seed self-build rules
-  PROJECT_REFERENCES.md              # source allowlist and registry
-  full-skill/                        # blueprint of the separate full skill package the seed generates
-    SKILL.md
-    ITERATION_RULES.md
-    PROJECT_REFERENCES.md
-    protocols/
-    templates/
-```
+| Object | Canonical name | Role |
+| --- | --- | --- |
+| Seed skill | `central-skill-seed` | Generates the full skill package. |
+| Full skill | `self-evolving-project-bootstrap` | Bootstraps and maintains project-level agent context. |
+| Project-level skill | `project-context-evolution` | Lets an initialized project maintain its own agent context. |
 
-## Core rule
+Do not use other names for these objects.
 
-The seed and the full skill are separate artifacts.
+## Flow
 
 ```text
-seed skill
-→ reads approved references
-→ generates separate full skill package
-→ full skill bootstraps project-level agent context
+central-skill-seed
+  -> generates self-evolving-project-bootstrap
+    -> initializes project AGENTS.md and .agent/
+      -> installs project-context-evolution
 ```
 
-The seed must not treat `full-skill/` as its own generated runtime state. `full-skill/` is a repository blueprint and expected output shape. In actual use, the seed should generate the full skill into a distinct target directory, for example:
+## Repository layout
+
+```text
+central-skill-seed/
+  README.md
+  SKILL.md
+  ITERATION_RULES.md
+  PROJECT_REFERENCES.md
+  full-skill/                  # blueprint for the generated full skill
+```
+
+The seed has only three operational core files:
+
+```text
+SKILL.md
+ITERATION_RULES.md
+PROJECT_REFERENCES.md
+```
+
+`README.md` is documentation. `full-skill/` is the blueprint of the package the seed generates. It is not seed runtime state.
+
+## Install target for the generated full skill
+
+Default target:
 
 ```text
 ~/.codex/skills/self-evolving-project-bootstrap/
 ```
 
-or a user-specified output path.
+A user-specified path may override this default.
 
-## Seed core files
+## Approved reference sources
 
-| File | Purpose |
-| --- | --- |
-| `SKILL.md` | Defines the seed identity and the separate full-skill generation workflow. |
-| `ITERATION_RULES.md` | Defines how the seed updates itself and how it emits the full skill. |
-| `PROJECT_REFERENCES.md` | Lists approved GitHub sources, generated full-skill targets, and managed project registries. |
+The seed may use only sources listed in `PROJECT_REFERENCES.md`. Current approved sources include:
 
-Only these three files are operational seed core.
+- https://github.com/anthropics/skills
+- https://github.com/agentskills/agentskills
+- https://agentskills.io/specification
+- https://agents.md
+- https://developers.openai.com/codex/guides/agents-md
+- https://github.com/ShunsukeHayashi/agent-skill-bus
+- https://github.com/alinaqi/maggy
+- https://github.com/NeoLabHQ/context-engineering-kit
+- https://github.com/VoltAgent/awesome-agent-skills
 
-## Mandatory GitHub reference sources
+## Boundary rule
 
-The seed may use only approved sources listed in `PROJECT_REFERENCES.md`, including:
-
-- `anthropics/skills` — https://github.com/anthropics/skills
-- `agentskills/agentskills` — https://github.com/agentskills/agentskills
-- Agent Skills specification — https://agentskills.io/specification
-- `AGENTS.md` — https://agents.md
-- OpenAI Codex `AGENTS.md` guide — https://developers.openai.com/codex/guides/agents-md
-- `ShunsukeHayashi/agent-skill-bus` — https://github.com/ShunsukeHayashi/agent-skill-bus
-- `alinaqi/maggy` — https://github.com/alinaqi/maggy
-- `NeoLabHQ/context-engineering-kit` — https://github.com/NeoLabHQ/context-engineering-kit
-- `VoltAgent/awesome-agent-skills` — https://github.com/VoltAgent/awesome-agent-skills
-
-## Full skill output
-
-The generated full skill should be an independent skill package named:
-
-```text
-self-evolving-project-bootstrap
-```
-
-It should contain its own `SKILL.md`, rules, protocols, templates, and project-bootstrap logic. It should not need the seed after generation.
-
-## Why this split matters
-
-The seed is stable and minimal. The full skill is operational and expandable.
-
-This prevents the seed from becoming bloated, self-mutating, or confused with its own output.
+The seed stays small. The full skill is operational. Initialized projects must not depend on either one after their own `project-context-evolution` skill is installed.

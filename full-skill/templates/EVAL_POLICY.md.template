@@ -2,7 +2,7 @@
 
 Repeated failures and durable user corrections should become regression cases.
 
-## Regression Case Format
+## Regression case format
 
 ```md
 ## Case: <short name>

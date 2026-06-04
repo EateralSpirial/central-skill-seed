@@ -1,41 +1,36 @@
 # AGENTS.md
 
-## Project Purpose
+## Project purpose
 
 <one-paragraph purpose>
 
-## Setup
+## Commands
 
 ```bash
+# install
 <install command>
-```
 
-## Test
-
-```bash
+# test
 <test command>
-```
 
-## Build
-
-```bash
+# build
 <build command>
 ```
 
-## Coding Rules
+## Coding rules
 
 - Preserve architecture boundaries.
 - Prefer small, reviewable changes.
-- Do not introduce dependencies without justification.
+- Do not add dependencies without justification.
 - Do not commit secrets.
 - Add or update tests when behavior changes.
 
-## Agent Workflow
+## Agent workflow
 
 Before editing, read `.agent/project/CONTEXT_MAP.md` and identify risk level.
 
-After editing, run relevant checks and update `.agent/experience/` or `.agent/evals/` when durable lessons appear.
+After editing, run relevant checks. Update `.agent/experience/` or `.agent/evals/` when durable lessons appear.
 
-## Self-Iteration
+## Self-iteration
 
 This project owns its agent context. Future agents should use `.agent/skills/project-context-evolution/SKILL.md` to update context, lessons, failure patterns, and regression cases.

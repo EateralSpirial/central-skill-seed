@@ -1,18 +1,18 @@
 # Review Policy
 
-## Low Risk
+## Low risk
 
 May be applied directly.
 
-## Medium Risk
+## Medium risk
 
 Requires a written change proposal.
 
-## High Risk
+## High risk
 
 Requires explicit user approval.
 
-## Proposal Format
+## Proposal format
 
 ```md
 ## Proposal: <title>

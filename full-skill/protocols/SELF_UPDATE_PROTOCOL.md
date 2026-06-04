@@ -1,8 +1,8 @@
 # Self Update Protocol
 
-## Purpose
+## Goal
 
-Update the full skill from managed project evidence and approved references.
+Update `self-evolving-project-bootstrap` from managed project evidence and approved references.
 
 ## Procedure
 
@@ -14,6 +14,6 @@ Update the full skill from managed project evidence and approved references.
 6. Preserve project independence.
 7. Record update history.
 
-## Risk Boundary
+## Risk boundary
 
 High-risk changes require explicit user approval.

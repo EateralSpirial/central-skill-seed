@@ -1,14 +1,14 @@
-# Full Skill Project References
+# self-evolving-project-bootstrap References
 
 ## Purpose
 
-This file belongs to the generated full skill.
+This file belongs to `self-evolving-project-bootstrap`.
 
-It records managed projects, reusable lessons, approved external references, and full-skill update history.
+It records managed projects, reusable lessons, approved references, and full-skill update history.
 
-## Approved External References
+## Approved references
 
-The full skill inherits these seed-approved references at generation time:
+The full skill inherits these approved references at generation time:
 
 - https://github.com/anthropics/skills
 - https://github.com/agentskills/agentskills
@@ -20,44 +20,31 @@ The full skill inherits these seed-approved references at generation time:
 - https://github.com/NeoLabHQ/context-engineering-kit
 - https://github.com/VoltAgent/awesome-agent-skills
 
-## Managed Projects
+## Managed projects
 
-### Project Entry Template
+### Entry template
 
-#### Project: <project name>
+```md
+## Project: <name>
 
-Local path:
-
+Path:
 Operation mode:
-
 Date:
-
 Project type:
-
-Primary language:
-
-Primary framework:
-
+Language/framework:
 Context files created:
-
 Context files updated:
-
 Project-level skill path:
-
-Experience sources:
-
 Reusable lessons:
-
 Known context risks:
-
 Follow-up:
-
 Status:
+```
 
-### Managed Project Entries
+### Entries
 
 No managed projects recorded yet.
 
-## Full Skill Update History
+## Full skill update history
 
-No full-skill updates recorded yet.
+No updates recorded yet.

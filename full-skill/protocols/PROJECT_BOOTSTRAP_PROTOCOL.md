@@ -1,47 +1,21 @@
 # Project Bootstrap Protocol
 
+## Goal
+
+Create an independent project-level agent context.
+
 ## Procedure
 
-### Step 1. Inspect Project Shape
+1. Inspect project language, framework, package manager, commands, tests, docs, and existing agent instructions.
+2. Identify architecture boundaries, generated files, secrets policy, and risk surfaces.
+3. Preserve useful existing rules and quarantine contradictions.
+4. Create or update `AGENTS.md`.
+5. Create `.agent/project/`.
+6. Install `.agent/skills/project-context-evolution/SKILL.md`.
+7. Create `.agent/experience/`, `.agent/iteration/`, and `.agent/evals/`.
+8. Register the project in the full skill's `PROJECT_REFERENCES.md`.
+9. Report created files and unresolved gaps.
 
-Identify:
+## Success criteria
 
-- project name
-- language
-- framework
-- package manager
-- build command
-- test command
-- lint command
-- typecheck command
-- deployment surface
-- existing docs
-- existing agent instructions
-
-### Step 2. Infer Agent Needs
-
-Determine what future agents need to know:
-
-- setup
-- tests
-- safe edit boundaries
-- architecture map
-- generated files
-- secrets policy
-- review policy
-- eval policy
-
-### Step 3. Generate Project Context
-
-Create:
-
-- `AGENTS.md`
-- `.agent/project/`
-- `.agent/skills/project-context-evolution/SKILL.md`
-- `.agent/experience/`
-- `.agent/iteration/`
-- `.agent/evals/`
-
-### Step 4. Validate Independence
-
-Confirm future agents can maintain project context without reading this full skill.
+Future agents can continue through project-local context without reading `self-evolving-project-bootstrap`.

@@ -1,15 +1,15 @@
 ---
 name: project-context-evolution
-description: Maintains and improves this project's agent context, lessons, failure patterns, evals, and review rules.
+description: Maintain this project's agent context, lessons, failure patterns, evals, and review rules.
 ---
 
-# Project Context Evolution Skill
+# project-context-evolution
 
 ## Purpose
 
-Maintain this project's agent context without depending on the central full skill or seed.
+Maintain this project's agent context without depending on `self-evolving-project-bootstrap` or `central-skill-seed`.
 
-## Use When
+## Use when
 
 - updating `AGENTS.md`
 - recording lessons
@@ -20,7 +20,7 @@ Maintain this project's agent context without depending on the central full skil
 
 ## Procedure
 
-1. Identify trigger.
+1. Identify the trigger.
 2. Separate fact from interpretation.
 3. Record lessons or corrections.
 4. Add regression cases when recurrence is plausible.
